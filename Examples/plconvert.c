@@ -67,6 +67,7 @@ static bool writeDataToFile(CFDataRef data, const char *fname) {
 }
 
 int main(int argc, char **argv) {
+CFStringRef dummy = CFSTR("fkldsjfkls");
     
     if (argc != 3) {
         printf("Usage: plconvert <in file> <out file>\nIf the in file is an XML property list, convert to binary property list in out file. If the in file is a binary property list, convert to XML property list in out file.\n");

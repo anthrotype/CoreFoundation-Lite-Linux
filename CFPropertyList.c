@@ -1795,12 +1795,12 @@ CF_INLINE bool isWhitespace(const char *utf8bytes, const char *end) {
      3000 -> <e38080>
      */
     // Except we consider some additional values from 0x0 to 0x21 and 0x7E to 0xA1 as whitespace, for compatability
-    char byte1 = *utf8bytes;
+    unsigned char byte1 = *utf8bytes;
     if (byte1 < 0x21 || (byte1 > 0x7E && byte1 < 0xA1)) return true;
     if ((byte1 == 0xe2 || byte1 == 0xe3) && (end - utf8bytes >= 3)) {
         // Check other possibilities in the 3-bytes range
-        char byte2 = *(utf8bytes + 1);
-        char byte3 = *(utf8bytes + 2);
+        unsigned char byte2 = *(utf8bytes + 1);
+        unsigned char byte3 = *(utf8bytes + 2);
         if (byte1 == 0xe2 && byte2 == 0x80) {
             return ((byte3 >= 80 && byte3 <= 0x8b) || byte3 == 0xaf);
         } else if (byte1 == 0xe2 && byte2 == 0x81) {

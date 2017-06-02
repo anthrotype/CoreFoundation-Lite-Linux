@@ -944,7 +944,7 @@ __private_extern__ Boolean __CFInitializing = 0;
 __private_extern__ Boolean __CFInitialized = 0;
 
 #if DEPLOYMENT_TARGET_LINUX || DEPLOYMENT_TARGET_FREEBSD
-static void __CFInitialize(void) __attribute__ ((constructor));
+static void __CFInitialize(void) __attribute__ ((constructor(0)));
 static
 #endif
 #if DEPLOYMENT_TARGET_WINDOWS
